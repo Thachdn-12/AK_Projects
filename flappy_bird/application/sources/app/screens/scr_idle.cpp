@@ -1,3 +1,4 @@
+#include "app.h"
 #include "scr_idle.h"
 
 using namespace std;
@@ -129,13 +130,13 @@ void scr_idle_handle(ak_msg_t *msg) {
 		}
 	} break;
 
-	case AC_DISPLAY_BUTON_MODE_PRESSED: {
-		APP_DBG_SIG("AC_DISPLAY_BUTON_MODE_PRESSED\n");
+	case AC_DISPLAY_BUTTON_MODE_PRESSED: {
+		APP_DBG_SIG("AC_DISPLAY_BUTTON_MODE_PRESSED\n");
 		scr_idle_return_screen();
 	} break;
 
-	case AC_DISPLAY_BUTON_UP_PRESSED: {
-		APP_DBG_SIG("AC_DISPLAY_BUTON_UP_PRESSED\n");
+	case AC_DISPLAY_BUTTON_UP_PRESSED: {
+		APP_DBG_SIG("AC_DISPLAY_BUTTON_UP_PRESSED\n");
 		ball new_ball;
 		new_ball.id = ball::total++;
 
@@ -154,8 +155,8 @@ void scr_idle_handle(ak_msg_t *msg) {
 		}
 	} break;
 
-	case AC_DISPLAY_BUTON_DOWN_PRESSED: {
-		APP_DBG_SIG("AC_DISPLAY_BUTON_DOWN_PRESSED\n");
+	case AC_DISPLAY_BUTTON_DOWN_PRESSED: {
+		APP_DBG_SIG("AC_DISPLAY_BUTTON_DOWN_PRESSED\n");
 		if (v_idle_ball.size()) {
 			ball::total--;
 			v_idle_ball.pop_back();

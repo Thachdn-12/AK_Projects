@@ -23,6 +23,9 @@
 #include "qrcode.h"
 #include "screens_bitmap.h"
 
+extern view_screen_t scr_flappy;
+extern void scr_flappy_handle(ak_msg_t* msg);
+
 // scr_idle
 extern view_dynamic_t dyn_view_idle;
 extern view_screen_t scr_idle;

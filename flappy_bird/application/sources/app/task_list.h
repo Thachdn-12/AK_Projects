@@ -45,6 +45,12 @@ enum {
 	AC_LINK_ID,
 #endif
 
+	/* Flappy Bird event handlers */
+	FB_GAME_ID,
+	FB_BIRD_ID,
+	FB_PIPE_ID,
+	FB_COLLISION_ID,
+
 	/* EOT task ID */
 	AK_TASK_EOT_ID,
 };
@@ -78,6 +84,12 @@ extern void task_uart_if(ak_msg_t*);
 extern void task_dbg(ak_msg_t*);
 extern void task_display(ak_msg_t*);
 extern void task_zigbee(ak_msg_t*);
+
+/* Flappy Bird event handlers */
+extern void fb_game_handle(ak_msg_t*);
+extern void fb_bird_handle(ak_msg_t*);
+extern void fb_pipe_handle(ak_msg_t*);
+extern void fb_collision_handle(ak_msg_t*);
 
 /* RF24 NETWORK TASK */
 extern void task_rf24_phy(ak_msg_t*);

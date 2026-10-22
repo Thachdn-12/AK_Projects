@@ -23,7 +23,7 @@ const task_t app_task_table[] = {
 	#if defined(TASK_ZIGBEE_EN)
 	{AC_TASK_ZIGBEE_ID			,	TASK_PRI_LEVEL_4	,	task_zigbee			},
 	#endif
-
+	
 	/*************************************************************************/
 	/* RF24 NETWORK TASK */
 	/*************************************************************************/
@@ -45,6 +45,12 @@ const task_t app_task_table[] = {
 	/*************************************************************************/
 	/* END OF TABLE */
 	/*************************************************************************/
+	// Drain the tick chain before the game task accepts another input.
+	{FB_GAME_ID, TASK_PRI_LEVEL_5, fb_game_handle},
+	{FB_BIRD_ID, TASK_PRI_LEVEL_6, fb_bird_handle},
+	{FB_PIPE_ID, TASK_PRI_LEVEL_6, fb_pipe_handle},
+	{FB_COLLISION_ID, TASK_PRI_LEVEL_7, fb_collision_handle},
+
 	{AK_TASK_EOT_ID				,	TASK_PRI_LEVEL_0	,	(pf_task)0			}
 };
 

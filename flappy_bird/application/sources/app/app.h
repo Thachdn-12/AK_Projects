@@ -127,6 +127,76 @@ enum {
 };
 
 /*****************************************************************************/
+/*  SCREENS task define
+ */
+/*****************************************************************************/
+/* define timer */
+#define AC_DISPLAY_INITIAL_INTERVAL									(100)
+#define AC_DISPLAY_STARTUP_INTERVAL									(2000)
+#define AC_DISPLAY_IDLE_INTERVAL									(15000)
+#define AC_DISPLAY_LOGO_INTERVAL									(10000)
+#define AC_DISPLAY_SHOW_IDLE_BALL_MOVING_UPDATE_INTERAL				(150)
+#define AC_DISPLAY_MINIMUM_SCREEN_RENDER_INTERVAL_MS				(50) /* 50ms => Max 20 FPS */
+
+/* define signal */
+enum {
+	/* Render screen signals */
+	AC_DISPLAY_RENDER_SCREEN = AK_SYS_DEFINE_SIG,
+
+	/* Button signals */
+	AC_DISPLAY_BUTTON_MODE_PRESSED,						
+	AC_DISPLAY_BUTTON_MODE_LONG_PRESSED,					
+	AC_DISPLAY_BUTTON_MODE_RELEASED,
+	AC_DISPLAY_BUTTON_UP_PRESSED,							
+	AC_DISPLAY_BUTTON_UP_LONG_PRESSED,					
+	AC_DISPLAY_BUTTON_UP_RELEASED,
+	AC_DISPLAY_BUTTON_DOWN_PRESSED,						
+	AC_DISPLAY_BUTTON_DOWN_LONG_PRESSED,					
+	AC_DISPLAY_BUTTON_DOWN_RELEASED,
+
+	/* Screen signal */
+	AC_DISPLAY_INITIAL = AK_USER_DEFINE_SIG,
+
+	/* Screen Startup signals */
+	AC_DISPLAY_SHOW_STARTUP_LOGO,
+
+	/* Idle screen signals */
+	AC_DISPLAY_SHOW_IDLE,
+	AC_DISPLAY_SHOW_IDLE_BALL_MOVING_UPDATE, 
+
+	/* Firmware update signals */
+	AC_DISPLAY_SHOW_FW_UPDATE,
+	AC_DISPLAY_SHOW_FW_UPDATE_ERR,
+
+	/* Flappy screen timer */
+	AC_DISPLAY_FLAPPY_TICK,
+};
+
+/*****************************************************************************/
+/*  Flappy Bird event-driven task signals
+ */
+/*****************************************************************************/
+/* define timer */
+/* define signal */
+enum {
+	FB_BIRD_INIT = FB_GAME_DEFINE_SIG,
+	FB_BIRD_FLAP,
+	FB_BIRD_TICK,
+	FB_BIRD_PAUSE,
+	FB_BIRD_RESUME,
+	FB_BIRD_COLLISION,
+	FB_PIPE_INIT,
+	FB_PIPE_UPDATE,
+	FB_COLLISION_CHECK,
+	FB_GAME_SETUP,
+	FB_GAME_FLAP,
+	FB_GAME_TOGGLE_PAUSE,
+	FB_GAME_TICK,
+	FB_GAME_RESTART,
+	FB_BIRD_TOGGLE_PAUSE,
+};
+
+/*****************************************************************************/
 /*  LIFE task define
  */
 /*****************************************************************************/
@@ -142,26 +212,6 @@ enum {
 #define AC_DISPLAY_MINIMUM_SCREEN_RENDER_INTERVAL_MS				(50) /* 50ms => Max 20 FPS */
 #define AC_DISPLAY_IDLE_INTERVAL									(15000)
 #define AC_DISPLAY_WELCOME_TEXT_ANIM_TICK_INTERVAL					(120)
-
-/* define signal */
-enum {
-	AC_DISPLAY_RENDER_SCREEN = AK_SYS_DEFINE_SIG,
-	AC_DISPLAY_INITIAL = AK_USER_DEFINE_SIG,
-	AC_DISPLAY_BUTON_MODE_PRESSED,
-	AC_DISPLAY_BUTON_UP_PRESSED,
-	AC_DISPLAY_BUTON_DOWN_PRESSED,
-	AC_DISPLAY_SHOW_LOGO,
-	AC_DISPLAY_SHOW_IDLE,
-	AC_DISPLAY_SHOW_IDLE_BALL_MOVING_UPDATE,
-	AC_DISPLAY_WELCOME_TEXT_ANIM_TICK,
-	AC_DISPLAY_SHOW_FW_UPDATE,
-	AC_DISPLAY_SHOW_FW_UPDATE_ERR,
-	AC_DISPLAY_SHOW_MERRY_CHRISTMAS_SNOW_MOVING_UPDATE,
-	AC_DISPLAY_SHOW_MERRY_CHRISTMAS_SLEEP,
-	AC_DISPLAY_SHOW_MODBUS_PULL_UPDATE,
-	AC_DISPLAY_SHOW_MODBUS_PULL_SLEEP
-};
-
 /*****************************************************************************/
 /*  ZIGBEE task define
  */

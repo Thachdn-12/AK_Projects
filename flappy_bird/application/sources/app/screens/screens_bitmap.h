@@ -4,6 +4,6 @@
 #include "view_render.h"
 
 // scr_welcome
-extern const unsigned char PROGMEM bitmap_dolphin[];
+extern const unsigned char PROGMEM bitmap_wallpaper[];
 
 #endif //__SCREENS_BITMAP_H__
