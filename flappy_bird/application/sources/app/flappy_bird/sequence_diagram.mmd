@@ -1,0 +1,24 @@
+sequenceDiagram
+    participant UI as Screen / Timer
+    participant Game as FB_GAME_ID
+    participant Bird as FB_BIRD_ID
+    participant Pipe as FB_PIPE_ID
+    participant Collision as FB_COLLISION_ID
+    UI->>Game: FB_GAME_TICK
+    Game->>Bird: FB_BIRD_TICK
+    opt Bird is FLYING
+        Bird->>Pipe: FB_PIPE_UPDATE
+        Pipe->>Collision: FB_COLLISION_CHECK
+        opt Collision detected
+            Collision->>Bird: FB_BIRD_COLLISION
+            Note over Bird: State becomes DEAD
+        end
+    end
+    UI->>Game: FB_GAME_FLAP
+    Game->>Bird: FB_BIRD_FLAP
+    opt Bird is DEAD
+        Bird->>Game: FB_GAME_RESTART
+        Game->>Bird: FB_BIRD_INIT
+        Game->>Pipe: FB_PIPE_INIT
+        Game->>Bird: FB_BIRD_FLAP
+    end
